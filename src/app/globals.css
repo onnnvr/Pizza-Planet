@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+
+
+body {
+  
+}
+
+.font-bowlby {
+  font-family: var(--font-bowlby);
+}
+
+.flipped-text {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  vertical-align: middle;
+}
