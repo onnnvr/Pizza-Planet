@@ -15,3 +15,14 @@ body {
   transform: rotate(180deg);
   vertical-align: middle;
 }
+
+@font-face {
+  font-family: "georgia";
+  src: url("/fonts/georgia.ttf") format("truetype");
+  font-weight: 100, 200, 300, 400, 500, 600, 700, 800;
+  font-style: italic, normal;
+}
+
+.font-georgia {
+  font-family: "georgia"
+}

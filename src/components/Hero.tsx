@@ -7,10 +7,10 @@ export default function Hero() {
                 <div className="font-bowlby font-normal text-[3.5vw] text-[#f2f0e9] ">
                     WE BAKE
                 </div>
-                <div className="font-bowlby font-normal text-[12vw] text-[#d93333] -mt-10">
+                <div className="font-bowlby font-normal text-[12vw] text-[#d93333] -mt-12">
                     PIZZAS
                 </div>
-                <div className="font-bowlby font-normal text-[3.5vw] leading-[1.2] text-[#f2f0e9] text-center -mt-18">
+                <div className="font-bowlby font-normal text-[3.5vw] leading-[1.2] text-[#f2f0e9] text-center -mt-15">
                     THAT TASTE<br />
                     INCREADIBLE
                 </div>
