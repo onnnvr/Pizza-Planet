@@ -1,5 +1,6 @@
 "use client"
 
+import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Ingredients from "@/components/Ingredients";
 import Types from "@/components/Types";
@@ -15,7 +16,7 @@ export default function Home() {
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
-  const [animation, setAnimation] = useState<gsap.core.Tween | null>(null)
+  // const [animation, setAnimation] = useState<gsap.core.Tween | null>(null)
 
   useGSAP(() => {
     
@@ -27,24 +28,54 @@ export default function Home() {
     });
 
     // 2. حركة الـ Pinning
-    const pin = gsap.to(
-      sectionRef.current,
-      {
-        x: "-300vw",
-        ease: "none",
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          start: "top top",
-          end: "+=1000", // استخدام += أفضل عشان يحسب مسافة سكرول صريحة بعد التثبيت
-          scrub: 0.6,
-          pin: true, 
-          anticipatePin: 1,
-          // markers: true
-        },
-      }
-    );
 
-    setAnimation(pin)
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: triggerRef.current,
+        start: "top top",
+        end: "+=4000", // مسافة طويلة تكفي السكرول العرضي والرأسي مع بعض
+        scrub: 0.6,
+        pin: true, 
+        anticipatePin: 1,
+      }
+    })
+
+    tl.to(sectionRef.current, {
+      x: "-62vw",
+      ease: "none",
+    })
+
+    // tl.to(".pizza-card", {
+    //   y: "-50vh",
+    //   opacity: 0,
+    //   duration: 1,
+    //   // stagger: 0.2,
+    //   ease: "none",
+
+    // })
+
+    
+
+    tl.to(".pizza-cards-container", {
+      y: "-350vh",
+      ease: "none",
+    })
+
+    
+    tl.to(sectionRef.current, {
+      x: "-158vw",
+      ease: "none",
+    })
+
+    tl.to(".ingredients-cards-container", {
+      x: "-80vw",
+      ease: "none"
+    } )
+
+    tl.to(sectionRef.current, {
+      x: "-253vw",
+      ease: "none",
+    })
 
 
   }, []);
@@ -59,8 +90,9 @@ export default function Home() {
             
             <div ref={sectionRef} className="relative h-dvh flex flex-row items-center w-[400vw]">
                 <Hero />
-                <Types animation={animation} />
+                <Types />
                 <Ingredients />
+                <Contact />
             </div>
 
           </div>

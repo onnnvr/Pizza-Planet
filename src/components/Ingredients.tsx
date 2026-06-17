@@ -1,4 +1,5 @@
 import Image from "next/image";
+import IngredientsCard from "./IngredientsCard";
 
 export default function Ingredients() {
     return (
@@ -13,19 +14,13 @@ export default function Ingredients() {
                         <Image src="/imgs/p-12.png" alt="" className="w-full h-full object-cover" fill />
                     </div>
                 </div>
-                <div className="h-[40vh] flex gap-3 overflow-hidden">
-                    <div className="w-[25vw] h-[100%] relative overflow-hidden">
-                        <Image src="/imgs/p-8.png" fill alt=""  className="object-cover" />   
-                    </div>
-                    <div className="w-[25vw] h-[100%] relative overflow-hidden">
-                        <Image src="/imgs/p-4.png" fill alt=""  className="object-cover" />   
-                    </div>
-                    <div className="w-[25vw] h-[100%] relative overflow-hidden">
-                        <Image src="/imgs/p-9.png" fill alt=""  className="object-cover" />   
-                    </div>
-                    <div className="w-[25vw] h-[100%] relative overflow-hidden">
-                        <Image src="/imgs/p-11.png" fill alt=""  className="object-cover" />   
-                    </div>
+                <div className="h-[40vh] flex gap-3 ingredients-cards-container">
+                    <IngredientsCard image="/imgs/p-8.png" recipe="INGREDIENTS" />
+                    <IngredientsCard image="/imgs/p-4.png" recipe="INGREDIENTS" />
+                    <IngredientsCard image="/imgs/p-9.png" recipe="INGREDIENTS" />
+                    <IngredientsCard image="/imgs/p-11.png" recipe="INGREDIENTS" />
+                    <IngredientsCard image="/imgs/p-10.png" recipe="INGREDIENTS" />
+                    <IngredientsCard image="/imgs/p-5.png" recipe="INGREDIENTS" />
                 </div>
             </div>
         </section>
