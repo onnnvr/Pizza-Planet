@@ -20,7 +20,7 @@ export default function Hero() {
 
 
     return (
-        <section className="h-dvh w-[70vw] overflow-hidden bg-[#2e333a] pt-18 flex justify-between gap-0">
+        <section className="h-dvh w-[70vw] overflow-hidden bg-[#2e333a] pt-20 flex justify-between gap-0">
             <div className="flex flex-col items-center pt-10 w-[90%]">
                 <div className="font-bowlby font-normal text-[3.5vw] text-[#f2f0e9] ">
                     WE BAKE

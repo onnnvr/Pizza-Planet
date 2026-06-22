@@ -1,6 +1,7 @@
 "use client"
 
 import Contact from "@/components/Contact";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Ingredients from "@/components/Ingredients";
 import Types from "@/components/Types";
@@ -36,6 +37,7 @@ export default function Home() {
         end: "+=4000", // مسافة طويلة تكفي السكرول العرضي والرأسي مع بعض
         scrub: 0.6,
         pin: true, 
+        markers: true,
         anticipatePin: 1,
       }
     })
@@ -45,19 +47,10 @@ export default function Home() {
       ease: "none",
     })
 
-    // tl.to(".pizza-card", {
-    //   y: "-50vh",
-    //   opacity: 0,
-    //   duration: 1,
-    //   // stagger: 0.2,
-    //   ease: "none",
-
-    // })
-
     
-
     tl.to(".pizza-cards-container", {
       y: "-350vh",
+      duration: 1,
       ease: "none",
     })
 
@@ -82,6 +75,7 @@ export default function Home() {
 
   return (
     <main className="overflow-hidden">
+      <Header />
       <div id="smooth-wrapper">
         <div id="smooth-content">
           

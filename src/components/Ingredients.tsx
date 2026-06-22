@@ -10,8 +10,8 @@ export default function Ingredients() {
                         <div className="font-bowlby text-[5.5vw] text-[#f2f0e9]">HOT &</div>
                         <div className="font-bowlby text-[16vw] text-[#d93333]">FRESH</div>
                     </div>
-                    <div className="w-[18vw] h-[20vw] relative overflow-hidden mr-35 ">
-                        <Image src="/imgs/p-12.png" alt="" className="w-full h-full object-cover" fill />
+                    <div className="size-[22vw] relative overflow-hidden mr-35 ">
+                        <video src="/videos/v2.mp4" autoPlay loop muted className="size-full" />
                     </div>
                 </div>
                 <div className="h-[40vh] flex gap-3 ingredients-cards-container">

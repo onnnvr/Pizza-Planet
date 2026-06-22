@@ -13,28 +13,14 @@ export default function Types() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const cardsContainer = useRef<HTMLDivElement>(null);
 
-   useGSAP(() => {
-        // gsap.from(".pizza-card", {
-        //     y: 100,
-        //     opacity: 0,
-        //     duration: 1,
-        //     scrollTrigger: {
-        //         trigger: ".pizza-card",
-        //         start: "top bottom",
-        //         end: "bottom top",
-        //         scrub: true,
-        //         markers: true,
-        //     }
-        // })
-        
-   })
+   
 
     return (
         <section ref={sectionRef} className="h-screen w-[92vw] overflow-hidden bg-[#2e333a] flex items-center">
             <div className="flex justify-between items-start w-full h-full">
                 
                 {/* الجزء الشمال: الكروت المتحركة رأسيًا */}
-                <div className="w-[50%] h-full overflow-hidden relative flex justify-center items-start pt-16">
+                <div className="w-[50%] h-full overflow-hidden relative flex justify-center items-start pt-20">
                     <div ref={cardsContainer} className="flex flex-col gap-[22vh] will-change-transform pizza-cards-container">
                         <PizzaCard  image="/imgs/p-1.png" title="PEPPERONI" span="THE CLASSIC" />
                         <PizzaCard image="/imgs/p-6.png" title="VEGGIE" span="GARDEN" />
@@ -46,7 +32,9 @@ export default function Types() {
 
                 {/* الجزء اليمين: النص الثابت */}
                 <div className="w-[50%] h-full flex flex-col justify-center items-center">
-                    <div className="text-[4vw] my-5">🍕</div>
+                    <div className="size-[13vw] mt-15 relative">
+                        <video src="/videos/v1.mp4" autoPlay loop muted className="size-full" />
+                    </div>
                     <div className="text-[#f2f0e9] font-bowlby text-2xl md:text-[2vw] text-center leading-relaxed">
                         FOR <span className="font-georgia italic">thirty</span> YEARS, WE’VE <span className="text-[#f2f0e9]/50">BEEN</span><br/>
                         KNEADING DOUGH <br />
