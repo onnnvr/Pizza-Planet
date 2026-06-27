@@ -82,7 +82,7 @@ export default function Hero() {
 
     return (
         <section ref={sectionRef} className="h-dvh w-[70vw] overflow-hidden bg-[#2e333a] pt-20 flex justify-between gap-0 relative">
-            <div className="flex ml-0 flex-col items-center pt-10 w-[90%] text-area">
+            <div className="flex ml-0 flex-col items-center justify-center pt-10 w-[90%] text-area leading-[1] max-h-full">
                 <div className="font-bowlby font-normal text-[3.5vw] text-[#f2f0e9] ">
                     {"WE BAKE".split(" ").map((word, i) => (
                         <span className="inline-block" key={i}>
@@ -93,12 +93,12 @@ export default function Hero() {
                         </span>
                     ))}
                 </div>
-                <div className="font-bowlby font-normal text-[12vw] text-[#d93333] -mt-12">
+                <div className="font-bowlby font-normal text-[12vw] text-[#d93333]">
                     {"PIZZAS".split("").map((char, y) => (
                         <span className="inline-block char-animate" key={y}>{char}</span>
                     ))}
                 </div>
-                <div className="font-bowlby font-normal text-[3.5vw] leading-[1.2] text-[#f2f0e9] text-center -mt-15">
+                <div className="font-bowlby font-normal text-[3.5vw] leading-[1.2] text-[#f2f0e9] text-center ">
                     {"THAT TASTE".split(" ").map((word, i) => (
                         <span className="inline-block" key={i}>
                             {word.split("").map((char, y) => (
@@ -111,10 +111,10 @@ export default function Hero() {
                         <span className="inline-block char-animate text-wipe" key={y}>{char}</span>
                     ))}
                 </div>
-                <div className="font-bowlby font-normal text-[15vw] text-[#f2f0e9] -mt-15 flex justify-center items-center">
+                <div className="font-bowlby font-normal text-[15vw] text-[#f2f0e9] flex justify-center items-center">
                     <span className="char-animate text-wipe">G</span>
                     <span className="char-animate text-wipe">O</span>
-                    <span className="relative w-[12vw] h-[15vh] image-animate"><Image src="/imgs/pizza.png" alt="pizza" fill className="object-cover" /></span>
+                    <span className="relative w-[120px] h-[150px] image-animate"><Image src="/imgs/pizza.png" alt="pizza" fill className="object-cover" /></span>
                     <span className="char-animate text-wipe">O</span>
                     <span className="char-animate text-wipe">D</span>
                 </div>

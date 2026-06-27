@@ -8,12 +8,16 @@ export default function Header() {
             <div className="text-3xl font-alex-brush italic">
                 Planet
             </div>
-            <div className="flex gap-8 text-xs font-bowlby items-center">
+            <div className="gap-8 text-xs font-bowlby items-center hidden lg:flex">
                 <Link href="/menu">Menu</Link>
                 <Link href="/offers">OFFERS</Link>
                 <Link href="/our-story">OUR STORY</Link>
                 <Link href="/categories">CATEGORIES</Link>
                 <Link href="/order">ORDER</Link>
+            </div>
+            <div className="flex gap-1 flex-col justify-center items-end lg:hidden">
+                <span className="w-6 h-[2px] bg-white"></span>
+                <span className="w-4 h-[2px] bg-white/50"></span>
             </div>
         </header>
     )
