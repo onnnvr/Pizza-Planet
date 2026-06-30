@@ -60,7 +60,7 @@ export default function Hero() {
         }, "<")
 
         tl.from(".text-area", {
-            marginLeft: "120px"
+            marginLeft: "10vw"
         }, "<")
 
         tl.from(".image-animate", {
@@ -114,7 +114,7 @@ export default function Hero() {
                 <div className="font-bowlby font-normal text-[15vw] text-[#f2f0e9] flex justify-center items-center">
                     <span className="char-animate text-wipe">G</span>
                     <span className="char-animate text-wipe">O</span>
-                    <span className="relative w-[120px] h-[150px] image-animate"><Image src="/imgs/pizza.png" alt="pizza" fill className="object-cover" /></span>
+                    <span className="relative w-[15vw] h-[9vw] image-animate"><Image src="/imgs/pizza.png" alt="pizza" fill className="object-cover" /></span>
                     <span className="char-animate text-wipe">O</span>
                     <span className="char-animate text-wipe">D</span>
                 </div>
