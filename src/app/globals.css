@@ -13,11 +13,15 @@ body {
 .font-alex-brush {
   font-family: var(--font-alex-brush);
 }
-.flipped-text {
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  vertical-align: middle;
+
+@media (width >= 64rem) {
+  .flipped-text {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    vertical-align: middle;
+  }
 }
+
 
 @font-face {
   font-family: "georgia";

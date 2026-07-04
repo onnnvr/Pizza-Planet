@@ -81,9 +81,9 @@ export default function Hero() {
 
 
     return (
-        <section ref={sectionRef} className="h-dvh w-[70vw] overflow-hidden bg-[#2e333a] pt-20 flex justify-between gap-0 relative">
-            <div className="flex ml-0 flex-col items-center justify-center pt-10 w-[90%] text-area leading-[1] max-h-full">
-                <div className="font-bowlby font-normal text-[3.5vw] text-[#f2f0e9] ">
+        <section ref={sectionRef} className="h-dvh w-screen lg:w-[70vw] overflow-hidden bg-[#2e333a] pt-20 flex flex-col lg:flex-row justify-between items-center relative">
+            <div className="flex ml-0 flex-col items-center justify-center pt-30 lg:pt-10 w-[90%] text-area leading-[1] max-h-full">
+                <div className="font-bowlby font-normal text-[8vw] lg:text-[3.5vw] text-[#f2f0e9] ">
                     {"WE BAKE".split(" ").map((word, i) => (
                         <span className="inline-block" key={i}>
                             {word.split("").map((char, y) => (
@@ -93,12 +93,12 @@ export default function Hero() {
                         </span>
                     ))}
                 </div>
-                <div className="font-bowlby font-normal text-[12vw] text-[#d93333]">
+                <div className="font-bowlby font-normal text-[20vw] lg:text-[12vw] text-[#d93333]">
                     {"PIZZAS".split("").map((char, y) => (
                         <span className="inline-block char-animate" key={y}>{char}</span>
                     ))}
                 </div>
-                <div className="font-bowlby font-normal text-[3.5vw] leading-[1.2] text-[#f2f0e9] text-center ">
+                <div className="font-bowlby font-normal text-[8vw] lg:text-[3.5vw] leading-[1.2] text-[#f2f0e9] text-center ">
                     {"THAT TASTE".split(" ").map((word, i) => (
                         <span className="inline-block" key={i}>
                             {word.split("").map((char, y) => (
@@ -111,7 +111,7 @@ export default function Hero() {
                         <span className="inline-block char-animate text-wipe" key={y}>{char}</span>
                     ))}
                 </div>
-                <div className="font-bowlby font-normal text-[15vw] text-[#f2f0e9] flex justify-center items-center">
+                <div className="font-bowlby font-normal text-[24vw] lg:text-[15vw] text-[#f2f0e9] flex justify-center items-center">
                     <span className="char-animate text-wipe">G</span>
                     <span className="char-animate text-wipe">O</span>
                     <span className="relative w-[15vw] h-[9vw] image-animate"><Image src="/imgs/pizza.png" alt="pizza" fill className="object-cover" /></span>
@@ -119,8 +119,8 @@ export default function Hero() {
                     <span className="char-animate text-wipe">D</span>
                 </div>
             </div>
-            <div className="w-[3.5vw] h-full border border-white/70 px-2 rounded-l-md overflow-hidden relative">
-                <div className="pizza-text-container flex flex-col justify-center gap-5 opacity-70">
+            <div className="w-full lg:w-[3.5vw] h-12 lg:h-full border border-white/70 px-2 rounded-l-md overflow-hidden relative">
+                <div className="pizza-text-container flex flex-row lg:flex-col justify-center absolute top-1/2 -translate-y-1/2 gap-5 opacity-70">
                     <span className="font-bowlby text-[#f2f0e9] flipped-text">PIZZA</span>
                     <span className="font-bowlby text-[#f2f0e9] flipped-text">PIZZA</span>
                     <span className="font-bowlby text-[#f2f0e9] flipped-text">PIZZA</span>

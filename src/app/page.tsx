@@ -30,45 +30,45 @@ export default function Home() {
 
     // 2. حركة الـ Pinning
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerRef.current,
-        start: "top top",
-        end: "+=4000", // مسافة طويلة تكفي السكرول العرضي والرأسي مع بعض
-        scrub: 0.6,
-        pin: true, 
-        markers: true,
-        anticipatePin: 1,
-      }
-    })
+    // const tl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: triggerRef.current,
+    //     start: "top top",
+    //     end: "+=4000", // مسافة طويلة تكفي السكرول العرضي والرأسي مع بعض
+    //     scrub: 0.6,
+    //     pin: true, 
+    //     markers: true,
+    //     anticipatePin: 1,
+    //   }
+    // })
 
-    tl.to(sectionRef.current, {
-      x: "-62vw",
-      ease: "none",
-    })
-
-    
-    tl.to(".pizza-cards-container", {
-      y: "-350vh",
-      duration: 1,
-      ease: "none",
-    })
+    // tl.to(sectionRef.current, {
+    //   x: "-62vw",
+    //   ease: "none",
+    // })
 
     
-    tl.to(sectionRef.current, {
-      x: "-158vw",
-      ease: "none",
-    })
+    // tl.to(".pizza-cards-container", {
+    //   y: "-350vh",
+    //   duration: 1,
+    //   ease: "none",
+    // })
 
-    tl.to(".ingredients-cards-container", {
-      x: "-80vw",
-      ease: "none"
-    } )
+    
+    // tl.to(sectionRef.current, {
+    //   x: "-158vw",
+    //   ease: "none",
+    // })
 
-    tl.to(sectionRef.current, {
-      x: "-253vw",
-      ease: "none",
-    })
+    // tl.to(".ingredients-cards-container", {
+    //   x: "-80vw",
+    //   ease: "none"
+    // } )
+
+    // tl.to(sectionRef.current, {
+    //   x: "-253vw",
+    //   ease: "none",
+    // })
 
 
   }, []);
@@ -80,9 +80,9 @@ export default function Home() {
         <div id="smooth-content">
           
           {/* التعديل الجوهري الوحيد هنا: إعطاء الـ Trigger نفس مساحة الشاشة بالظبط */}
-          <div ref={triggerRef} className="h-dvh w-full overflow-hidden">
+          <div ref={triggerRef} className="lg:h-dvh w-full overflow-hidden">
             
-            <div ref={sectionRef} className="relative h-dvh flex flex-row items-center w-[400vw]">
+            <div ref={sectionRef} className="relative lg:h-dvh flex flex-col lg:flex-row items-center w-screen lg:w-[400vw]">
                 <Hero />
                 <Types />
                 <Ingredients />

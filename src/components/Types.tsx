@@ -16,11 +16,11 @@ export default function Types() {
    
 
     return (
-        <section ref={sectionRef} className="h-screen w-[92vw] overflow-hidden bg-[#2e333a] flex items-center">
-            <div className="flex justify-between items-start w-full h-full">
+        <section ref={sectionRef} className="h-screen w-screen lg:w-[92vw] overflow-hidden bg-[#2e333a] flex items-center">
+            <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start w-full h-full">
                 
                 {/* الجزء الشمال: الكروت المتحركة رأسيًا */}
-                <div className="w-[50%] h-full overflow-hidden relative flex justify-center items-start pt-20">
+                <div className="w-[50%] h-full overflow-hidden relative flex justify-center items-start lg:pt-20">
                     <div ref={cardsContainer} className="flex flex-col gap-[22vh] will-change-transform pizza-cards-container">
                         <PizzaCard  image="/imgs/p-1.png" title="PEPPERONI" span="THE CLASSIC" />
                         <PizzaCard image="/imgs/p-6.png" title="VEGGIE" span="GARDEN" />
@@ -31,8 +31,8 @@ export default function Types() {
                 </div>
 
                 {/* الجزء اليمين: النص الثابت */}
-                <div className="w-[50%] h-full flex flex-col justify-center items-center">
-                    <div className="size-[13vw] mt-15 relative">
+                <div className="w-full lg:w-[50%] h-full flex flex-col justify-center items-center">
+                    <div className="size-[13vw] lg:mt-15 relative">
                         <video src="/videos/v1.mp4" autoPlay loop muted className="size-full" />
                     </div>
                     <div className="text-[#f2f0e9] font-bowlby text-2xl md:text-[2vw] text-center leading-relaxed">

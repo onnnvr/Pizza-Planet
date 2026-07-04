@@ -51,7 +51,7 @@ export default function IngredientsCard({ image, recipe} : {image:string, recipe
     }, []);
 
     return(
-        <div ref={cardRef} className="w-[25vw] shrink-0 h-[100%] relative overflow-hidden rounded-xl">
+        <div ref={cardRef} className="w-full lg:w-[25vw] shrink-0 h-[100%] relative overflow-hidden rounded-xl">
             <Image src={image} fill alt={recipe}  className="object-cover" />   
         </div>
     )
