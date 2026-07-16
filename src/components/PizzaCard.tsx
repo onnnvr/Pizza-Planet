@@ -42,12 +42,12 @@ export default function PizzaCard({ image, title, span }: {image:string, title:s
     }, []); // الـ Array الفاضية هنا كفاية جداً
 
     return(
-        <div ref={cardRef} className="w-[40vw] h-[68vh] bg-[#f2f0e9] flex flex-col justify-center items-center rounded-lg opacity-0">
-            <div className="w-[37vw] h-[47vh] relative rounded-lg overflow-hidden">
+        <div ref={cardRef} className=" w-90 lg:w-[40vw] h-70 lg:h-[68vh] bg-[#f2f0e9] flex flex-col justify-center items-center rounded-lg opacity-0">
+            <div className=" w-86 lg:w-[37vw] h-50 lg:h-[47vh] relative rounded-lg overflow-hidden">
                 <Image src={image} fill alt="" className="object-cover" />
             </div>
-            <span className="font-bowlby text-[11px] mt-8">{span}</span>
-            <h3 className="font-bowlby text-5xl text-[#d93333]">{title}</h3>
+            <span className="font-bowlby text-[8px] lg:text-[11px] mt-4 lg:mt-8">{span}</span>
+            <h3 className="font-bowlby text-3xl lg:text-5xl text-[#d93333]">{title}</h3>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import IngredientsCard from "./IngredientsCard";
 
 export default function Ingredients() {
     return (
-        <section className="h-[2500px] lg:h-dvh w-screen lg:w-[95vw] overflow-hidden bg-[#2e333a]">
+        <section className="h-[2450px] py-10 lg:h-dvh w-screen lg:w-[95vw] overflow-hidden bg-[#2e333a]">
             <div className="w-full h-full flex flex-col gap-5 lg:mt-35 lg:mx-20">
                 <div className="lg:h-[40vh] flex flex-col items-center lg:flex-row gap-20">
                     <div className="w-[70%] flex flex-col justify-center items-center lg:items-start leading-[1.1]">
