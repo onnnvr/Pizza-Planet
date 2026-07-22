@@ -24,7 +24,7 @@ export default function Home() {
     
     // 1. تعريف الـ Smoother الأول
     ScrollSmoother.create({
-      smooth: 2,
+      smooth: 5,
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
     });
