@@ -1,14 +1,59 @@
 import Image from "next/image";
+import IngredientsCard from "./IngredientsCard";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef, useState } from "react";
+import PizzaCard from "./PizzaCard";
+import { ScrollTrigger } from "gsap/all";
 import Link from "next/link";
 
-export default function Contact() {
+export default function Contact({containerAnimation}: {containerAnimation: any}) {
+    const sectionRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+
+        if (!containerAnimation) return; 
+
+        gsap.fromTo(".char-animate", {
+            x: 100,
+            rotate: 30,
+            opacity: 0,
+        }, {
+            x: 0,
+            rotate: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.05,
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "20% right",
+                end: "-25% left",
+                markers: true,
+                scrub: 1,
+                containerAnimation: containerAnimation,
+            }
+        })
+
+        
+    }, {scope: sectionRef, dependencies: [containerAnimation]});
+
+
     return (
-        <section className="lg:h-dvh w-screen lg:w-[95vw] overflow-hidden bg-[white] pt-10 lg:pt-[20vh]">
+        <section ref={sectionRef} className="lg:h-dvh w-screen lg:w-[95vw] overflow-hidden bg-[white] pt-10 lg:pt-[20vh]">
             <div className="flex flex-col">
                 <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between px-[4vw] ">
-                    <div className="font-bowlby text-7xl lg:text-[6vw] flex flex-col lg:text-start text-center leading-20 lg:leading-[13vh] "><span className="text-black">ORDER</span> <span className="text-[#d93333] inline-block">NOW</span></div>
+                    <div className="font-bowlby text-7xl lg:text-[6.5vw] flex flex-col lg:text-start text-center leading-20 lg:leading-[13vh] ">
+                        <span className="text-black">{"ORDER".split("").map((char, index) => (
+                                <span key={index} className="inline-block char-animate opacity-100">{char}</span>
+                            ))}
+                        </span>
+                        <span className="text-[#d93333] inline-block">{"NOW".split("").map((char, index) => (
+                                <span key={index} className="inline-block char-animate opacity-100">{char}</span>
+                            ))}
+                        </span>
+                    </div>
                     <div className="w-96 h-75 lg:w-[30vw] lg:h-[35.5vh] relative overflow-hidden lg:-mr-[3vw] lg:-mt-[3vh]">
-                        <video src="/videos/v3.mp4" autoPlay loop muted className="size-full object-cover" />
+                        <video src="/videos/v3.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />
                     </div>
                 </div>
                 <hr />
@@ -50,7 +95,7 @@ export default function Contact() {
                     <hr className="lg:mt-[10vh]" />
                     <div className="flex flex-col justify-between items-center">
                         <div className=" w-20 h-20 lg:w-[15vw] lg:h-[40vh] my-5 lg:mt-[8vh] lg:ml-[3.5vw] relative overflow-hidden">
-                            <video src="/videos/v4.mp4" autoPlay loop muted className="size-full object-cover" />
+                            <video src="/videos/v4.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />
                         </div>
                     </div>
                 </div>

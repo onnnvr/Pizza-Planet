@@ -9,11 +9,36 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 // بنستقبل الـ horizontalTween هنا
-export default function Types() {
+export default function Types({ containerAnimation } : { containerAnimation: any }) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const cardsContainer = useRef<HTMLDivElement>(null);
+    const textContainer = useRef<HTMLDivElement>(null);
+    console.log("Types containerAnimation", containerAnimation)
 
-   
+    useGSAP(() => {
+        // 1. حماية: لو التايم لاين لسه null ميكملش عشان ميضربش إيرور
+        if (!containerAnimation) return; 
+
+        gsap.from(".word-animate", { // 2. حطينا النقطة هنا
+            y: 200,      
+            rotate: 10,    
+            opacity: 0,
+            duration: 1.5,
+            ease: "power4.out",
+            stagger: 0.1, 
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                // markers: true,
+                start: "left right", // 3. غيرنا top لـ left
+                end: "left left",  // 3. غيرنا bottom لـ right (أو left 20%)
+                scrub: 1,
+                containerAnimation: containerAnimation, 
+            }
+        })
+    }, { 
+        scope: sectionRef, 
+        dependencies: [containerAnimation] // 4. الأهم: ضفناها هنا عشان الهوك يشتغل لما التايم لاين يوصل
+    });
 
     return (
         <section ref={sectionRef} className="lg:h-screen w-screen lg:w-[92vw] overflow-hidden bg-[#2e333a] py-10 flex items-center">
@@ -33,15 +58,33 @@ export default function Types() {
                 {/* الجزء اليمين: النص الثابت */}
                 <div className="w-full lg:w-[50%] h-full flex flex-col justify-center px-5 pb-5 items-center">
                     <div className="size-[13vw] lg:mt-15 relative">
-                        <video src="/videos/v1.mp4" autoPlay loop muted className="size-full" />
+                        <video src="/videos/v1.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />
                     </div>
-                    <div className="text-[#f2f0e9] font-bowlby text-2xl md:text-[2vw] text-center leading-relaxed">
-                        FOR <span className="font-georgia italic">thirty</span> YEARS, WE’VE <span className="text-[#f2f0e9]/50">BEEN</span><br/>
-                        KNEADING DOUGH <br />
-                        STORY SAUCES, TOPPING DETAILS, <span className="text-[#f2f0e9]/50">SOLVING</span> <br />
-                        RECIPES, <span className="text-[1.5vw]">AND</span> CRAFTING <span className="font-georgia italic">delicious</span> <br />
-                        FLAVORS <span className="text-[1.5vw]">FOR</span> BIG <span className="text-[1.5vw]">(AND HUNGRY)</span> <br />
-                        APPETITES.
+                    <div ref={textContainer} className="text-[#f2f0e9] font-bowlby text-2xl md:text-[2vw] text-center leading-relaxed">
+                        <span className="inline-block word-animate">FOR</span>{" "}
+                        <span className="font-georgia italic inline-block word-animate">thirty</span>{" "}
+                        <span className="inline-block word-animate">YEARS,</span>{" "}
+                        <span className="inline-block word-animate">WE’VE</span> {" "}
+                        <span className="text-[#f2f0e9]/50 inline-block word-animate">BEEN </span>{" "}
+                        <br/>
+                        <span className="inline-block word-animate">KNEADING DOUGH </span>{" "}
+                        <br />
+                        <span className="inline-block word-animate">STORY </span>{" "}
+                        <span className="inline-block word-animate">SAUCES, </span>{" "}
+                        <span className="inline-block word-animate">TOPPING DETAILS, </span>{" "}
+                        <span className="text-[#f2f0e9]/50 inline-block word-animate">SOLVING</span>{" "}
+                        <br />
+                        <span className="inline-block word-animate">RECIPES, </span>{" "}
+                        <span className="text-[1.5vw] inline-block word-animate">AND</span> {" "}
+                        <span className="inline-block word-animate">CRAFTING </span>{" "}
+                        <span className="font-georgia italic inline-block word-animate">delicious</span> {" "}
+                        <br />
+                        <span className="inline-block word-animate">FLAVORS </span>{" "}
+                        <span className="text-[1.5vw] inline-block word-animate">FOR</span> {" "}
+                        <span className="inline-block word-animate">BIG </span>{" "}
+                        <span className="text-[1.5vw] inline-block word-animate">(AND HUNGRY)</span> {" "}
+                        <br />
+                        <span className="inline-block word-animate">APPETITES.</span>{" "}
                     </div>
                 </div>
 
