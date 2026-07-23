@@ -58,7 +58,7 @@ export default function Contact({containerAnimation}: {containerAnimation: any})
                 </div>
                 <hr />
                 <div className=" flex flex-col lg:grid lg:grid-cols-4 lg:grid-rows-1 gap-[2vw] pt-10 lg:pt-0 ">
-                    <div className="flex flex-col gap-[3vh] lg:py-[2vh] border-r-gray-500 lg:border-r-2 px-[6vw] lg:col-span-3">
+                    <div className="flex flex-col gap-[3vh] lg:py-[2vh] border-r-gray-500 lg:border-r-2 px-[4vw] lg:col-span-3">
                         <div className="flex flex-col lg:flex-row justify-between items-start gap-3 lg:items-center">
                             <div className="font-bowlby text-4xl lg:text-[4vw] text-black">
                                 PIZZA PLANET
@@ -92,7 +92,6 @@ export default function Contact({containerAnimation}: {containerAnimation: any})
                             <div className="font-bowlby text-black">800.PIZZA.NOW</div>
                         </div>
                     </div>
-                    <hr className="lg:mt-[10vh]" />
                     <div className="flex flex-col justify-between items-center lg:col-span-1">
                         <div className=" w-20 h-20 lg:w-[15vw] lg:h-[40vh] my-5 lg:mt-[8vh] lg:ml-[3.5vw] relative overflow-hidden">
                             <video src="/videos/v4.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />
