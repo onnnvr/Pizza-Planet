@@ -12,77 +12,162 @@ export default function Hero() {
     const sectionRef = useRef<HTMLDivElement | null>(null)
 
     useGSAP(() => {
-        // أنيميشن حركة الـ Pizza الجانبية
-        gsap.to((".pizza-text-container"), {
-            y: -500,
-            duration: 5,
-            ease: "none",
-            repeat: -1
-        })
+        let mm = gsap.matchMedia();
 
-        const tl = gsap.timeline()
+        mm.add("(min-width: 1024px)", () => {
+            gsap.to(".pizza-text-container", {
+                y: -500,
+                duration: 5,
+                ease: "none",
+                repeat: -1,
+            });
 
-        // 1. الأنيميشنز الأساسية بتاعتك زي ما هي الأول
-        tl.from(".char-animate", {
-            y: 200,          
-            opacity: 0,
-            duration: 1.5,
-            ease: "power4.out",
-            stagger: 0.05, 
-        })
+            const tl = gsap.timeline();
 
-        
-        // 2. التعديل هنا: أنيميشن الـ Background Wipe من اليمين للشمال في الآخر
-        // اللون الأصلي: #2e333a واللون الجديد: #f2f0e9
-        tl.fromTo(sectionRef.current, {
-            // البداية: الستارة البيج موجودة كلها ناحية اليمين (عند الـ 100%)
-            backgroundImage: "linear-gradient(to left, #2e333a 0%, #f2f0e9 0%)"
-        }, {
-            // النهاية: الستارة البيج بتمسح الرمادي من اليمين للشمال (عند الـ 100%)
-            backgroundImage: "linear-gradient(to left, #2e333a 100%, #f2f0e9 100%)",
-            duration: 2, // مدة حركة الستارة
-            ease: "power2.inOut",
+            tl.from(".char-animate", {
+                y: 200,
+                opacity: 0,
+                duration: 1.5,
+                ease: "power4.out",
+                stagger: 0.05,
+            });
+
+            tl.fromTo(
+                sectionRef.current,
+                {
+                    backgroundImage: "linear-gradient(to left, #2e333a 0%, #f2f0e9 0%)",
+                },
+                {
+                    backgroundImage: "linear-gradient(to left, #2e333a 100%, #f2f0e9 100%)",
+                    duration: 2,
+                    ease: "power2.inOut",
+                }
+            );
+
+            tl.from(
+                ".text-wipe",
+                {
+                    color: "#2e333a",
+                    duration: 2,
+                    stagger: 0.01,
+                    ease: "power2.inOut",
+                },
+                "<"
+            );
+
+            tl.from(
+                sectionRef.current,
+                {
+                    width: "98vw",
+                    duration: 2,
+                    ease: "power2.inOut",
+                },
+                "<"
+            );
+
+            tl.from(
+                ".text-area",
+                {
+                    marginLeft: "10vw",
+                },
+                "<"
+            );
+
+            tl.from(
+                ".image-animate",
+                {
+                    y: 200,
+                    width: "0vw",
+                    duration: 1,
+                    ease: "power4.out",
+                },
+                "-=1"
+            );
+
+            tl.from("header", {
+                opacity: 0,
+                duration: 1,
+                ease: "power2.inOut",
+            });
         });
 
-        
-        tl.from(".text-wipe", {
-            color: "#2e333a", // اللون الجديد اللي هيتحولوا ليه
-            duration: 2,
-            stagger: 0.01,
-            ease: "power2.inOut"
-        }, "<");
-        
-        tl.from(sectionRef.current, {
-            width: "98vw",
+        mm.add("(max-width: 1023px)", () => {
+            gsap.to(".pizza-text-container", {
+                x: -500,
+                duration: 5,
+                ease: "none",
+                repeat: -1,
+            });
 
-            duration: 2,
-            ease: "power2.inOut"
-        }, "<")
+            const tl = gsap.timeline();
 
-        tl.from(".text-area", {
-            marginLeft: "10vw"
-        }, "<")
+            tl.from(".char-animate", {
+                y: 200,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power4.out",
+                stagger: 0.04,
+            });
 
-        tl.from(".image-animate", {
-            y: 200,
-            width: "0vw",
-            duration: 1,
-            ease: "power4.out",
-        }, "-=1")
+            tl.fromTo(
+                sectionRef.current,
+                {
+                    backgroundImage: "linear-gradient(to top, #2e333a 0%, #f2f0e9 0%)",
+                },
+                {
+                    backgroundImage: "linear-gradient(to top, #2e333a 100%, #f2f0e9 100%)",
+                    duration: 2,
+                    ease: "power2.inOut",
+                }
+            );
 
-        tl.from("header", {
-            opacity: 0,
-            duration: 1,
-            ease: "power2.inOut"
-        })
+            tl.from(
+                ".text-wipe",
+                {
+                    color: "#2e333a",
+                    duration: 2,
+                    stagger: 0.01,
+                    ease: "power2.inOut",
+                },
+                "<"
+            );
 
-    })
+            tl.from(
+                sectionRef.current,
+                {
+                    height: "98vh",
+                    duration: 2,
+                    ease: "power2.inOut",
+                },
+                "<"
+            );
+
+            tl.from(
+                ".text-area",
+                {
+                    marginTop: "10vh",
+                },
+                "<"
+            );
+
+            tl.from(
+                ".image-animate",
+                {
+                    y: 200,
+                    height: "0vh",
+                    duration: 1,
+                    ease: "power4.out",
+                },
+                "-=1"
+            );
+        });
+    });
     
 
 
     return (
         <section ref={sectionRef} className="h-dvh w-screen lg:w-[70vw] overflow-hidden bg-[#2e333a] pt-20 flex flex-col lg:flex-row justify-between items-center relative">
-            <div className="flex ml-0 flex-col items-center justify-center pt-30 lg:pt-10 w-[90%] text-area leading-[1] max-h-full">
+            <div className="flex ml-0 flex-col items-center justify-center h-full lg:pt-10 w-[90%] text-area leading-[1] max-h-full">
                 <div className="font-bowlby font-normal text-[8vw] lg:text-[3.5vw] text-[#f2f0e9] ">
                     {"WE BAKE".split(" ").map((word, i) => (
                         <span className="inline-block" key={i}>

@@ -16,20 +16,34 @@ export default function Ingredients({containerAnimation}: {containerAnimation: a
 
         if (!containerAnimation) return; 
 
-        gsap.fromTo(".char-animate", {
-            x: 100,
-            rotate: 30,
+        gsap.fromTo(".char-animate-1", {
+            rotate: 20,
             opacity: 0,
         }, {
-            x: 0,
             rotate: 0,
             opacity: 1,
-            duration: 1,
-            stagger: 0.05,
+            stagger: -0.1,
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "left right",
-                end: "left left",
+                end: "-20% left",
+                // markers: true,
+                scrub: 1,
+                containerAnimation: containerAnimation,
+            }
+        })
+
+        gsap.fromTo(".char-animate-2", {
+            rotate: 20,
+            opacity: 0,
+        }, {
+            rotate: 0,
+            opacity: 1,
+            stagger: -0.1,
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "left right",
+                end: "-20% left",
                 // markers: true,
                 scrub: 1,
                 containerAnimation: containerAnimation,
@@ -40,17 +54,17 @@ export default function Ingredients({containerAnimation}: {containerAnimation: a
     }, {scope: sectionRef, dependencies: [containerAnimation]}); 
 
     return (
-        <section ref={sectionRef} className="h-[2450px] py-10 lg:h-dvh w-screen lg:w-[95vw] overflow-hidden bg-[#2e333a]">
+        <section ref={sectionRef} className="h-full py-10 lg:h-dvh w-screen lg:w-[95vw] overflow-hidden bg-[#2e333a]">
             <div className="w-full h-full flex flex-col gap-5 lg:mt-35 lg:mx-20">
-                <div className="lg:h-[40vh] flex flex-col items-center lg:flex-row gap-20">
-                    <div className="w-[70%] flex flex-col justify-center items-center lg:items-start leading-[1.1]">
+                <div className="lg:h-[40%] flex flex-col items-center lg:flex-row gap-20">
+                    <div className="w-[90%] flex flex-col justify-center items-center lg:items-start leading-[1.1]">
                         <div className="font-bowlby text-4xl lg:text-[5.5vw] text-[#f2f0e9]">{"HOT".split("").map((char, index) => (
-                                <span key={index} className="inline-block char-animate opacity-100">{char}</span>
+                                <span key={index} className="inline-block char-animate-1 opacity-100">{char}</span>
                             ))}{" "}
-                            <span className="inline-block char-animate opacity-100">&</span>
+                            <span className="inline-block char-animate-1 opacity-100">&</span>
                         </div>
                         <div className="font-bowlby text-8xl lg:text-[16vw] text-[#d93333]">{"FRESH".split("").map((char, index) => (
-                                <span key={index} className="inline-block char-animate opacity-100">{char}</span>
+                                <span key={index} className="inline-block char-animate-2 opacity-100">{char}</span>
                             ))}
                         </div>
                     </div>
@@ -58,7 +72,7 @@ export default function Ingredients({containerAnimation}: {containerAnimation: a
                         <video src="/videos/v2.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />
                     </div>
                 </div>
-                <div className="h-[40vh] flex flex-col lg:flex-row gap-3 ingredients-cards-container">
+                <div className="lg:h-[60%] h-full flex flex-col lg:flex-row gap-15 lg:gap-3 ingredients-cards-container">
                     <IngredientsCard image="/imgs/p-8.png" recipe="INGREDIENTS" containerAnimation={containerAnimation} />
                     <IngredientsCard image="/imgs/p-4.png" recipe="INGREDIENTS" containerAnimation={containerAnimation} />
                     <IngredientsCard image="/imgs/p-9.png" recipe="INGREDIENTS" containerAnimation={containerAnimation} />

@@ -22,83 +22,95 @@ export default function Home() {
 
   useGSAP(() => {
     
-    // 1. تعريف الـ Smoother الأول
+    // 1. تعريف الـ Smoother الأول (ده بيشتغل على كل الشاشات عادي)
     ScrollSmoother.create({
       smooth: 5,
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
     });
 
-    // 2. حركة الـ Pinning
+    // 2. استخدام matchMedia عشان نحدد الشاشات الكبيرة بس
+    let mm = gsap.matchMedia();
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerRef.current,
-        start: "top top",
-        end: "+=4000", // مسافة طويلة تكفي السكرول العرضي والرأسي مع بعض
-        scrub: 0.6,
-        pin: true, 
-        anticipatePin: 1,
-      }
-    })
+    // هنا بنقوله: الكود ده هيشتغل بس لو الشاشة 1024 بيكسل أو أكبر (lg في Tailwind)
+    mm.add("(min-width: 1024px)", () => {
+      
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top top",
+          end: "+=4000", 
+          scrub: 0.6,
+          pin: true, 
+          anticipatePin: 1,
+        }
+      });
 
+      tl.to(sectionRef.current, {
+        x: "-62vw",
+        ease: "none",
+      }, "text-animation");
 
-    tl.to(sectionRef.current, {
-      x: "-62vw",
-      ease: "none",
-    }, "text-animation")
+      tl.to(".pizza-cards-container", {
+        y: "-350vh",
+        duration: 1,
+        ease: "none",
+      }, "verticalScroll");
 
-    tl.from
+      tl.from(".pizza-card-item:not(:first-child)", { 
+        y: 200,
+        rotate: 5,
+        opacity: 0,
+        duration: 0.5,     
+        stagger: 0.2,        
+        ease: "power1.out",
+      }, "verticalScroll");   
+      
+      tl.to(sectionRef.current, {
+        x: "-158vw",
+        ease: "none",
+      });
+      
+      tl.to(".ingredients-cards-container", {
+        x: "-80vw",
+        ease: "none"
+      }, "ingredientsScroll" );
+      
+      tl.from(".ingredients-card-item:not(:nth-child(-n+3))", { 
+        x: 200,
+        rotate: 5,
+        opacity: 0,
+        duration: 0.5,     
+        stagger: 0.2,        
+        ease: "power1.out",
+      }, "ingredientsScroll");  
 
-    tl.to(".pizza-cards-container", {
-      y: "-350vh",
-      duration: 1,
-      ease: "none",
-    }, "verticalScroll")
+      tl.to(sectionRef.current, {
+        x: "-253vw",
+        ease: "none",
+      });
 
-    tl.from(".pizza-card-item:not(:first-child)", { // استثنينا أول كارت عشان هو أصلاً بيكون ظاهر أول ما ندخل السكشن
-      y: 200,
-      rotate: 5,
-      opacity: 0,
-      duration: 0.5,     
-      stagger: 0.2,        
-      ease: "power1.out",
-    }, "verticalScroll")   
+      // حفظ الـ Timeline في الـ State للشاشات الكبيرة
+      setContainerAnimation(tl); 
 
-    
-    tl.to(sectionRef.current, {
-      x: "-158vw",
-      ease: "none",
-    })
+      // الـ return هنا بيشتغل لما الشاشة تصغر عن 1024px (عشان ينظف الـ State)
+      return () => {
+        setContainerAnimation(null);
+      };
+      
+    });
 
-    
-    tl.to(".ingredients-cards-container", {
-      x: "-80vw",
-      ease: "none"
-    }, "ingredientsScroll" )
-    
-    tl.from(".ingredients-card-item:not(:nth-child(-n+3))", { // استثنينا أول 3 كروت عشان هم أصلاً بيبقاو ظاهرين أول ما ندخل السكشن
-      x: 200,
-      rotate: 5,
-      opacity: 0,
-      duration: 0.5,     
-      stagger: 0.2,        
-      ease: "power1.out",
-    }, "ingredientsScroll")  
-
-
-    tl.to(sectionRef.current, {
-      x: "-253vw",
-      ease: "none",
-    })
-
-
-    setContainerAnimation(tl); // حفظ الـ Timeline في الـ State عشان نقدر نتحكم فيه من أي مكان
-
+    // (اختياري) تقدر تعمل أنيميشن مختلف للموبايل لو حابب كده:
+    /*
+    mm.add("(max-width: 1023px)", () => {
+       // أنيميشن الموبايل الرأسي هنا
+    });
+    */
 
   }, []);
 
-  console.log("containerAnimation", containerAnimation)
+
+
 
   return (
     <main className="overflow-hidden">

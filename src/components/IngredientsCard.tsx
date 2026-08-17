@@ -72,7 +72,7 @@ export default function IngredientsCard({ image, recipe, containerAnimation } : 
     // }, []);
 
     return(
-        <div ref={cardRef} className="w-full lg:w-[25vw] shrink-0 h-[100%] relative overflow-hidden rounded-xl ingredients-card-item">
+        <div ref={cardRef} className="w-[90%] h-90 lg:w-[25vw] shrink-0 lg:h-[100%] mx-auto relative overflow-hidden rounded-xl ingredients-card-item">
             <Image src={image} fill alt={recipe}  className="object-cover" />   
         </div>
     )

@@ -14,21 +14,35 @@ export default function Contact({containerAnimation}: {containerAnimation: any})
 
         if (!containerAnimation) return; 
 
-        gsap.fromTo(".char-animate", {
-            x: 100,
-            rotate: 30,
+        gsap.fromTo(".char-animate-1", {
+            rotate: 20,
             opacity: 0,
         }, {
-            x: 0,
             rotate: 0,
             opacity: 1,
-            duration: 1,
-            stagger: 0.05,
+            stagger: -0.1,
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "20% right",
                 end: "-25% left",
-                markers: true,
+                // markers: true,
+                scrub: 1,
+                containerAnimation: containerAnimation,
+            }
+        })
+
+        gsap.fromTo(".char-animate-2", {
+            rotate: 20,
+            opacity: 0,
+        }, {
+            rotate: 0,
+            opacity: 1,
+            stagger: -0.1,
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "20% right",
+                end: "-25% left",
+                // markers: true,
                 scrub: 1,
                 containerAnimation: containerAnimation,
             }
@@ -44,15 +58,15 @@ export default function Contact({containerAnimation}: {containerAnimation: any})
                 <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between px-[4vw] ">
                     <div className="font-bowlby text-7xl lg:text-[6.5vw] flex flex-col lg:text-start text-center leading-20 lg:leading-[13vh] ">
                         <span className="text-black">{"ORDER".split("").map((char, index) => (
-                                <span key={index} className="inline-block char-animate opacity-100">{char}</span>
+                                <span key={index} className="inline-block char-animate-1 opacity-100">{char}</span>
                             ))}
                         </span>
                         <span className="text-[#d93333] inline-block">{"NOW".split("").map((char, index) => (
-                                <span key={index} className="inline-block char-animate opacity-100">{char}</span>
+                                <span key={index} className="inline-block char-animate-2 opacity-100">{char}</span>
                             ))}
                         </span>
                     </div>
-                    <div className="w-96 h-75 lg:w-[30vw] lg:h-[35.5vh] relative overflow-hidden lg:-mr-[3vw] lg:-mt-[3vh]">
+                    <div className="w-96 h-75 lg:w-[30vw] lg:h-[35.5vh] relative overflow-hidden lg:-mr-[3vw] lg:-mt-[5vh]">
                         <video src="/videos/v3.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />
                     </div>
                 </div>
@@ -93,7 +107,7 @@ export default function Contact({containerAnimation}: {containerAnimation: any})
                         </div>
                     </div>
                     <div className="flex flex-col justify-between items-center lg:col-span-1">
-                        <div className=" w-20 h-20 lg:w-[15vw] lg:h-[40vh] my-5 lg:mt-[8vh] lg:ml-[3.5vw] relative overflow-hidden">
+                        <div className=" w-20 h-20 lg:w-[15vw] lg:h-[30vh] my-5 lg:mt-[8vh] lg:ml-[3.5vw] relative overflow-hidden">
                             <video src="/videos/v4.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />
                         </div>
                     </div>
