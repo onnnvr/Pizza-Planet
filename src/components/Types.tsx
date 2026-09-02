@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-// بنستقبل الـ horizontalTween هنا
 export default function Types({ containerAnimation } : { containerAnimation: any }) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const cardsContainer = useRef<HTMLDivElement>(null);
@@ -65,9 +64,8 @@ export default function Types({ containerAnimation } : { containerAnimation: any
         <section ref={sectionRef} className="lg:h-dvh w-screen lg:w-[92vw] overflow-hidden bg-[#2e333a] py-10 flex items-center">
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center lg:items-start w-full h-full">
                 
-                {/* الجزء الشمال: الكروت المتحركة رأسيًا */}
                 <div className="lg:w-[50%] mx-10 h-full overflow-hidden relative flex justify-center items-start lg:pt-20">
-                    <div ref={cardsContainer} className="flex flex-col gap-[22vh] will-change-transform pizza-cards-container">
+                    <div ref={cardsContainer} className="flex flex-col gap-5 lg:gap-[22vh] will-change-transform pizza-cards-container">
                         <PizzaCard  image="/imgs/p-1.png" title="PEPPERONI" span="THE CLASSIC" />
                         <PizzaCard image="/imgs/p-6.png" title="VEGGIE" span="GARDEN" />
                         <PizzaCard image="/imgs/p-2.png" title="MARGHERITA" span="ITALIANO" />
@@ -76,7 +74,6 @@ export default function Types({ containerAnimation } : { containerAnimation: any
                     </div>
                 </div>
 
-                {/* الجزء اليمين: النص الثابت */}
                 <div className="w-full lg:w-[50%] h-full flex flex-col justify-center px-5 pb-5 items-center">
                     <div className="size-[13vw] lg:mt-15 relative">
                         <video src="/videos/v1.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />

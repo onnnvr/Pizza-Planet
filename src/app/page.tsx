@@ -18,21 +18,18 @@ export default function Home() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const [containerAnimation, setContainerAnimation] = useState<any>(null);
-  // const [animation, setAnimation] = useState<gsap.core.Tween | null>(null)
 
   useGSAP(() => {
     
-    // 1. تعريف الـ Smoother الأول (ده بيشتغل على كل الشاشات عادي)
     ScrollSmoother.create({
       smooth: 5,
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
     });
 
-    // 2. استخدام matchMedia عشان نحدد الشاشات الكبيرة بس
     let mm = gsap.matchMedia();
 
-    // هنا بنقوله: الكود ده هيشتغل بس لو الشاشة 1024 بيكسل أو أكبر (lg في Tailwind)
+
     mm.add("(min-width: 1024px)", () => {
       
       const tl = gsap.timeline({
@@ -90,22 +87,15 @@ export default function Home() {
         ease: "none",
       });
 
-      // حفظ الـ Timeline في الـ State للشاشات الكبيرة
+
       setContainerAnimation(tl); 
 
-      // الـ return هنا بيشتغل لما الشاشة تصغر عن 1024px (عشان ينظف الـ State)
+
       return () => {
         setContainerAnimation(null);
       };
       
     });
-
-    // (اختياري) تقدر تعمل أنيميشن مختلف للموبايل لو حابب كده:
-    /*
-    mm.add("(max-width: 1023px)", () => {
-       // أنيميشن الموبايل الرأسي هنا
-    });
-    */
 
   }, []);
 
@@ -118,7 +108,6 @@ export default function Home() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           
-          {/* التعديل الجوهري الوحيد هنا: إعطاء الـ Trigger نفس مساحة الشاشة بالظبط */}
           <div ref={triggerRef} className="lg:h-dvh w-full overflow-hidden">
             
             <div ref={sectionRef} className="relative lg:h-dvh flex flex-col lg:flex-row items-center w-screen lg:w-[400vw]">

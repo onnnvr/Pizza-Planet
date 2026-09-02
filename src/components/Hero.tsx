@@ -160,6 +160,12 @@ export default function Hero() {
                 },
                 "-=1"
             );
+
+            tl.from("header", {
+                opacity: 0,
+                duration: 1,
+                ease: "power2.inOut",
+            });
         });
     });
     

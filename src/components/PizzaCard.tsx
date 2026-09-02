@@ -1,13 +1,32 @@
 "use client";
-
-import Image from "next/image";
-import { useRef, useEffect } from "react"; // مش محتاجين useState
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+import Image from "next/image";
+import { useRef, useEffect } from "react"; 
 
 export default function PizzaCard({ image, title, span }: {image:string, title:string, span:string}) {
     const cardRef = useRef<HTMLDivElement | null>(null);
 
-    
+    useGSAP(() => {
+        const mm = gsap.matchMedia();
+
+        mm.add("(max-width: 1023px)", () => {
+            gsap.from(cardRef.current, {
+                y: 200,
+                rotate: 5,
+                opacity: 0,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: cardRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1,
+                }
+            })
+        })
+    })
 
     return(
         <div ref={cardRef} className=" pizza-card-item w-90 lg:w-[40vw] h-70 lg:h-[68vh] bg-[#f2f0e9] flex flex-col justify-center items-center rounded-lg">

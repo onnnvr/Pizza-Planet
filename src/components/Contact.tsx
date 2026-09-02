@@ -1,10 +1,6 @@
-import Image from "next/image";
-import IngredientsCard from "./IngredientsCard";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
-import PizzaCard from "./PizzaCard";
-import { ScrollTrigger } from "gsap/all";
 import Link from "next/link";
 
 export default function Contact({containerAnimation}: {containerAnimation: any}) {
@@ -12,41 +8,73 @@ export default function Contact({containerAnimation}: {containerAnimation: any})
 
     useGSAP(() => {
 
-        if (!containerAnimation) return; 
-
-        gsap.fromTo(".char-animate-1", {
-            rotate: 20,
-            opacity: 0,
-        }, {
-            rotate: 0,
-            opacity: 1,
-            stagger: -0.1,
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "20% right",
-                end: "-25% left",
-                // markers: true,
-                scrub: 1,
-                containerAnimation: containerAnimation,
-            }
+        const mm = gsap.matchMedia();
+        mm.add("(min-width: 1024px)", () => {
+            gsap.fromTo(".char-animate-1", {
+                rotate: 20,
+                opacity: 0,
+            }, {
+                rotate: 0,
+                opacity: 1,
+                stagger: -0.1,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "20% right",
+                    end: "-25% left",
+                    // markers: true,
+                    scrub: 1,
+                    containerAnimation: containerAnimation,
+                }
+            })
+    
+            gsap.fromTo(".char-animate-2", {
+                rotate: 20,
+                opacity: 0,
+            }, {
+                rotate: 0,
+                opacity: 1,
+                stagger: -0.1,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "20% right",
+                    end: "-25% left",
+                    // markers: true,
+                    scrub: 1,
+                    containerAnimation: containerAnimation,
+                }
+            })
         })
 
-        gsap.fromTo(".char-animate-2", {
-            rotate: 20,
-            opacity: 0,
-        }, {
-            rotate: 0,
-            opacity: 1,
-            stagger: -0.1,
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "20% right",
-                end: "-25% left",
-                // markers: true,
-                scrub: 1,
-                containerAnimation: containerAnimation,
-            }
+        mm.add("(max-width: 1023px)", () => {
+            gsap.from(".char-animate-1", {
+                y: 50,
+                rotate: 20,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "20% center",
+                    scrub: 1,
+                }
+            })
+            
+            gsap.from(".char-animate-2", {
+                y: 50,
+                rotate: 20,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "20% center",
+                    scrub: 1,
+                }
+            })
         })
+
 
         
     }, {scope: sectionRef, dependencies: [containerAnimation]});
