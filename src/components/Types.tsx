@@ -46,7 +46,7 @@ export default function Types({ containerAnimation } : { containerAnimation: any
                 stagger: 0.1,
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    markers: true,
+                    // markers: true,
                     start: "top bottom",
                     end: "40% center",
                     scrub: 3,
