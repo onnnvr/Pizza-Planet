@@ -104,13 +104,13 @@ export default function Ingredients({containerAnimation}: {containerAnimation: a
                         <video src="/videos/v2.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />
                     </div>
                 </div>
-                <div className="lg:h-[60%] h-full flex flex-col lg:flex-row gap-5 lg:gap-3 ingredients-cards-container">
-                    <IngredientsCard image="/imgs/p-8.png" recipe="INGREDIENTS" containerAnimation={containerAnimation} />
-                    <IngredientsCard image="/imgs/p-4.png" recipe="INGREDIENTS" containerAnimation={containerAnimation} />
-                    <IngredientsCard image="/imgs/p-9.png" recipe="INGREDIENTS" containerAnimation={containerAnimation} />
-                    <IngredientsCard image="/imgs/p-11.png" recipe="INGREDIENTS" containerAnimation={containerAnimation} />
-                    <IngredientsCard image="/imgs/p-10.png" recipe="INGREDIENTS" containerAnimation={containerAnimation} />
-                    <IngredientsCard image="/imgs/p-5.png" recipe="INGREDIENTS" containerAnimation={containerAnimation} />
+                <div className="lg:h-[60%] h-full flex flex-col lg:flex-row gap-5 lg:gap-3 ingredients-cards-container mb-30">
+                    <IngredientsCard image="/imgs/p-8.png" recipe="Wood-fired, hand-tossed, and cheesy: Planet Pizza's signature slice is back in town, better than ever." date="JULY 10, 2025" />
+                    <IngredientsCard image="/imgs/p-4.png" recipe="The secret is in the sauce: 48-hour fermented dough meets vine-ripened San Marzano tomatoes." date="JUNE 28, 2025" />
+                    <IngredientsCard image="/imgs/p-9.png" recipe="Piping hot and ready to roll: Our new delivery fleet ensures your crust stays crispy from oven to doorstep." date="MAY 15, 2025" />
+                    <IngredientsCard image="/imgs/p-11.png" recipe="Farm to table, slice to soul: Locally sourced toppings that make every bite a galactic experience." date="APRIL 02, 2025" />
+                    <IngredientsCard image="/imgs/p-10.png" recipe="Mastering the artisanal art of the stretch: Watch our dough doctors work their magic in the open kitchen." date="MARCH 20, 2025" />
+                    <IngredientsCard image="/imgs/p-5.png" recipe="The moon is made of cheese, and so is our stuffed crust: A celestial blend of five mozzarella varieties." date="FEBRUARY 12, 2025" />
                 </div>
             </div>
         </section>
