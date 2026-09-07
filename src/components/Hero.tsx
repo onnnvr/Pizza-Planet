@@ -12,6 +12,8 @@ export default function Hero() {
     const sectionRef = useRef<HTMLDivElement | null>(null)
 
     useGSAP(() => {
+        document.body.style.overflow = "hidden";
+
         let mm = gsap.matchMedia();
 
         mm.add("(min-width: 1024px)", () => {
@@ -22,7 +24,11 @@ export default function Hero() {
                 repeat: -1,
             });
 
-            const tl = gsap.timeline();
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    document.body.style.overflow = "auto";
+                }
+            });
 
             tl.from(".char-animate", {
                 y: 200,
@@ -99,7 +105,11 @@ export default function Hero() {
                 repeat: -1,
             });
 
-            const tl = gsap.timeline();
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    document.body.style.overflow = "auto";
+                }
+            });
 
             tl.from(".char-animate", {
                 y: 200,

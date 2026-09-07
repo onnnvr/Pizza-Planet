@@ -61,10 +61,10 @@ export default function Types({ containerAnimation } : { containerAnimation: any
     });
 
     return (
-        <section ref={sectionRef} className="lg:h-dvh w-screen lg:w-[92vw] overflow-hidden bg-[#2e333a] py-10 flex items-center">
+        <section ref={sectionRef} className="lg:h-dvh w-screen lg:w-[92vw] overflow-hidden bg-[#2e333a] py-5 flex items-center">
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center lg:items-start w-full h-full">
                 
-                <div className="lg:w-[50%] mx-10 h-full overflow-hidden relative flex justify-center items-start lg:pt-20">
+                <div className="lg:w-[45%] mx-10 h-full overflow-hidden relative flex justify-center items-start lg:pt-20">
                     <div ref={cardsContainer} className="flex flex-col gap-5 lg:gap-[22vh] will-change-transform pizza-cards-container">
                         <PizzaCard  image="/imgs/p-1.png" title="PEPPERONI" span="THE CLASSIC" />
                         <PizzaCard image="/imgs/p-6.png" title="VEGGIE" span="GARDEN" />
@@ -74,8 +74,8 @@ export default function Types({ containerAnimation } : { containerAnimation: any
                     </div>
                 </div>
 
-                <div className="w-full lg:w-[50%] h-full flex flex-col justify-center px-5 pb-5 items-center">
-                    <div className="size-[13vw] lg:mt-15 relative">
+                <div className="w-full lg:w-[55%] h-full flex flex-col justify-center px-5 items-center">
+                    <div className="size-[12vw] lg:mt-15 relative">
                         <video src="/videos/v1.mp4" playsInline autoPlay loop muted className="size-full object-cover pointer-events-none" />
                     </div>
                     <div ref={textContainer} className="text-[#f2f0e9] font-bowlby text-2xl md:text-[2vw] text-center leading-relaxed">

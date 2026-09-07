@@ -86,16 +86,16 @@ export default function Ingredients({containerAnimation}: {containerAnimation: a
     }, {scope: sectionRef, dependencies: [containerAnimation]}); 
 
     return (
-        <section ref={sectionRef} className="h-full py-10 lg:h-dvh w-screen lg:w-[95vw] overflow-hidden bg-[#2e333a]">
-            <div className="w-full h-full flex flex-col gap-5 lg:mt-35 lg:mx-20">
+        <section ref={sectionRef} className="h-full py-5 lg:h-dvh w-screen lg:w-[95vw] overflow-hidden bg-[#2e333a]">
+            <div className="w-full h-full flex flex-col gap-5 lg:mt-35 lg:mx-15">
                 <div className="lg:h-[40%] flex flex-col items-center lg:flex-row gap-20">
                     <div className="w-[90%] flex flex-col justify-center items-center lg:items-start leading-[1.1]">
-                        <div className="font-bowlby text-4xl lg:text-[5.5vw] text-[#f2f0e9]">{"HOT".split("").map((char, index) => (
+                        <div className="font-bowlby text-4xl lg:text-[5vw] text-[#f2f0e9]">{"HOT".split("").map((char, index) => (
                                 <span key={index} className="inline-block char-animate-1 opacity-100">{char}</span>
                             ))}{" "}
                             <span className="inline-block char-animate-1 opacity-100">&</span>
                         </div>
-                        <div className="font-bowlby text-8xl lg:text-[16vw] text-[#d93333]">{"FRESH".split("").map((char, index) => (
+                        <div className="font-bowlby text-8xl lg:text-[14vw] text-[#d93333]">{"FRESH".split("").map((char, index) => (
                                 <span key={index} className="inline-block char-animate-2 opacity-100">{char}</span>
                             ))}
                         </div>

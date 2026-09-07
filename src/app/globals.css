@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 
-
-body {
-  
+html::-webkit-scrollbar {
+  display: none; 
 }
+
+html {
+  scrollbar-width: none;
+}
+
 
 .font-bowlby {
   font-family: var(--font-bowlby);
